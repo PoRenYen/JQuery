@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse-even</title>
+</head>
+
+<body>
+    <button class="btn btn-primary">
+        btn
+    </button>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // 快速點擊兩次，實際會觸發2次CLICK跟一次DBLCLICK
+        $(".btn").click(function () {
+            console.log('click');
+        });
+
+        console.log('dblclicktest');
+
+        $(".btn").dblclick(function () {
+            console.log('dblclick');
+        });
+        //因為還沒執行 DBLCLICK事件前FUNCTION不會綁定到,BTN身上。變成USER DBLCLICK事件"之後"才執行右鍵
+        $(".btn").contextmenu(function () {
+            console.log('contextmenu');
+        });
+        $(".btn").mouseup(function () {
+            console.log('mouseup');
+        });
+        $(".btn").mousedown(function () {
+            console.log('mousedown')
+        });
+        $(".btn").mouseenter(function () {
+            console.log('mouseenter');
+            $(this).css('background-color', "red")
+        });
+        $(".btn").mouseleave(function () {
+            console.log('mouseleave');
+            $(this).css('background-color', "orange")
+        });
+        $(".btn").hover(function () {
+            console.log('hover in')
+        }, function () { console.log('hover leave') });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+
+<body>
+    <script>
+        // 函數's NAME
+        // function abc() {
+        //     consloe.log('abc')
+        // }
+        // abc();
+
+        //匿名函式
+        // 通常用在只執行一次，而且會立即執行(後面帶小括號)。
+        // (function () {
+        //     console.log('no name');
+        // })();
+
+        // ES6宣告函式的方式改變，用CONST去宣告一個匿名函式
+        // const def = function () {
+        //     console.leg('def');
+        // };
+
+        // def();
+
+        // FUNCTION 後面的小括號，到底是幹嘛的?
+        // 因為裡面可用來傳遞參數使用，無值責留空
+        function add(a, b) {
+            console.log(a);
+            console.log(b);
+            console.log(a + b);
+            console.log(a / b);
+        };
+        add(555, 888);
+        add(666, 9523654)
+        // RETURN 回傳，把一個計算後的結果回傳回去
+        // 故我們需要一個變數去承接這個回傳結果。
+        //js  因為有加減乘除 命名的話會用大寫開頭 通稱小駝峰命名法
+        function returnAddResult(a, b) {
+            return (a + b);
+        }
+
+        const myResult = returnAddResult(1, 2)
+        console.log(myResult);
+        // myResult=3
+
+        const myResult2 = returnAddResult(3, 4)
+        console.log(myResult2);
+        // myResult2=7
+
+        console.log(myResult + myResult2);
+        //10
+
+        //ES6 箭頭函式，我們用()=>FUNCTION的簡稱
+        // JQ不接受箭頭函式
+        function normalFunc() {
+            console.log('normalFunc');
+        };
+    </script>
+</body>
+
+</html>

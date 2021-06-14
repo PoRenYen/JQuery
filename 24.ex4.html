@@ -14,9 +14,9 @@
         <form>
 
             <div class="form-group">
-                <label for="exampleInputusername">User name</label>
+                <label for="exampleInputUsername">User name</label>
                 <!-- INPUT的所有資訊都在屬性(ATTRIBUTE)裡面 -->
-                <input type="text" class="form-control" id="exampleInputusername" aria-describedby="usernamehelp"
+                <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="usernamehelp"
                     placeholder="Enteryour name">
             </div>
 
@@ -35,8 +35,8 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="butten" class="btn btn-info auto-input">Auto Input</button>
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button type="button" class="btn btn-info auto-input">Auto Input</button>
+            <button type="submit" class="btn btn-info submit">Submit</button>
         </form>
     </div>
 </div>
@@ -49,13 +49,16 @@
     $('.auto-input').click(function () {
         console.log('hi');
         console.log(event);
-        $('#exampleInputusername').val('DOO SI DAY');
+        $('#exampleInputUsername').val('DOO SI DAY');
+        $('#exampleInputEmail1').val('DOOSIDAY@gmail.com');
+        $('#exampleInputPassword1').val('741852963741');
     });
     $('.submit').click(function () {
         event.preventDefault();
         console.log('hi submit');
         //  自己用AJAX 送表單內容伺服器
     });
+
 
 </script>
 

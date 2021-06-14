@@ -28,7 +28,7 @@
                     </td>
                     <td>MARK ZUCKERBERG</td>
                     <td>+88613255468</td>
-                    <td>>MARK ZUCKERBERG@gmail.com</td>
+                    <td>MARK ZUCKERBERG@gmail.com</td>
                 </tr>
                 <tr>
                     <td>
@@ -54,8 +54,10 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $('input').click(function () {
-            console.log('hi', $(this).css('background', 'blue'));
+            // console.log('hi');
+            $(this).parent().parent().css('background', 'lightblue');
         });
+
     </script>
 </body>
 

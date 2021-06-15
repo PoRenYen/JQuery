@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <select name="city" id="city" class="form-control">
+                            <option value="0">基隆</option>
+                            <option value="1">台北</option>
+                            <option value="2">新北</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="city" id="city" class="form-control">
+                            <option value="0">七堵區</option>
+                            <option value="1">中正區</option>
+                            <option value="2">暖暖區</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // 1.當USER改變CITY的時間抓到的
+        $('#city').change(function () {
+            // 利用CITY的VAL(),即可取得當時選的OPTION,在這個CHANGE的FUNCTION裡面，$(THIS)代筆的就是$("#CITY")
+            console.log('hi', $(this).val());
+            // 2.我們需要取得CITY的區域名稱陣列
+            console.log('array:', districtArry[cityVal]);
+            const districData = districtArry[cityVal];
+            // 3.利用迴圈，去修改第二個下拉選單裡的OPTION名稱
+            // 這邊做法是選去DOM有幾個，再將資料改道HTML裡
+            // $('#district option')會選到3個OPTION的陣列
+
+            // JQ迴圈方法是.each()，一個一個DOM一次拿出來操作
+            //在這是把3個OPTION一次拿出來操作(修改裡面之文字)
+
+            // JQ的.each()裡面的FUNCTION 可放預設的INDEX參數
+            // 可利用.TEXT()拿DOM裡的文字
+            $('#district option').each(function (index) {
+                // console.log('each;',$(this).text());
+                // console.log('index:', index);
+                // console.log('data:', districData[index]);
+                // 如想修改下拉是選單之文字，可在.TEXT()裡放字串
+                // 這裡的$(this)代表的是3個OPTION，看我迴圈跑第幾次，$(THIS)就代表第OPTION
+                $(this).text(districData[index] + "區");
+            });
+
+            //另一個方向的做法是從資料去跑回圈
+            //依序修改第幾個OPTION的TEXT()
+            $(districData).each(function (index) {
+                console.log('hi', districData[index]);
+                $('#district option ').eq(index).text(districData[index] + '區  ')
+            });
+
+        });
+    </script>
+</body>
+
+</html>

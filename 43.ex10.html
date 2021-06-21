@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10</title>
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            display: flex;
+        }
+
+        .demo-area {
+            width: 50%;
+            height: 100%;
+            background-color: lightsalmon;
+            margin-right: 10px;
+        }
+
+        .color-selector-area {
+            width: 50%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .color-selector {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .color-selector:nth-child(1) {
+            background-color: lightblue;
+        }
+
+        .color-selector:nth-child(2) {
+
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="demo-area">
+
+        </div>
+        <div class="color-selector-area">
+            <div class="color-selector"></div>
+            <div class="color-selector"></div>
+        </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+        // $('.autobg').each(function (index, currentElement) {
+        //     currentElement.style.backgroundImage = getRBGA();
+        // });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </script>
+
+    <script>
+        $('.color-selector').click(function () {
+            const myBgcolor = $(this).css('background-color');
+            $('.demo-area').css('background-color', myBgcolor)
+        });
+
+        for (let i = 0; i < 10; i++) {
+            $('.color-selector-area').append('<div class="color-selector"></div>');
+        }
+
+
+    </script>
+
+</body>
+
+</html>
